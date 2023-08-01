@@ -9,17 +9,75 @@
       integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
-        <h1>JQuery Crash Course</h1>
-        <div class="container">
-
-        </div>
+      <h1>JQuery Crash Course</h1>
     </header>
-    <script>
+    <div class="container">
+      <h1 id="heading1">Heading 1</h1>
+      <p id="para1">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum corporis
+        id officiis minima perferendis. Esse incidunt quas, praesentium
+        dignissimos sequi, <span>maxime adipisci</span> nam id perferendis
+        eligendi natus fuga aspernatur quia! Nam saepe, maiores mollitia ratione
+        quaerat vitae neque itaque ex, quis magni, at repellendus culpa nisi?
+        Quia incidunt aliquid libero.
+      </p>
+      <h1 class="heading2">Heading 1</h1>
+      <p class="para2">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum corporis
+        id officiis minima perferendis. Esse incidunt quas, praesentium
+        dignissimos sequi, <span>maxime adipisci</span> nam id perferendis
+        eligendi natus fuga aspernatur quia! Nam saepe, maiores mollitia ratione
+        quaerat vitae neque itaque ex, quis magni, at repellendus culpa nisi?
+        Quia incidunt aliquid libero.
+      </p>
+      <ul id="list">
+        <li>List Item</li>
+        <li>List Item</li>
+        <li>List Item</li>
+        <li>List Item</li>
+        <li>List Item</li>
+        <li>List Item</li>
+        <li>List Item</li>
+        <li>List Item</li>
+      </ul>
+      <input type="button" value="button 1" />
+      <input type="submit" value="button 1" />
+      <input type="text" />
 
+      <a href="http://google.com">Google</a>
+      <a href="http://yahoo.com">Yahoo</a>
+    </div>
+
+    <script>
+      //   $("h1").hide();
+      // access ID using element tag
+      $("h1#heading1").hide();
+      //access class using element tag
+      $("h1.heading2").hide();
+      //this also works
+      $(".heading2").hide();
+      //get the span in the paragraph
+      $("p span").css("color", "red");
+
+      $("ul#list li:first").css("color", "red");
+      $("ul#list li:last").css("color", "green");
+      $("ul#list li:even").css("background-color", "yellow");
+      $("ul#list li:odd").css("background-color", "#cccccc");
+      //removes bullets from every 3rd list item
+      $("ul#list li:nth-child(3n)").css("list-style", "none");
+      $(":button").hide();
+      $(":submit").hide();
+      $(":text").hide();
+      //this targets all hrefs
+      $("[href]").css("color", "red");
+      //this targets just yahoo link
+      $("a[href='http://yahoo.com']").css("color", "red");
+      //this hides everything
+      //   $("*").hide();
     </script>
   </body>
 </html>
