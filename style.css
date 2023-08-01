@@ -19,3 +19,12 @@ header {
   margin: auto;
   padding: 10px;
 }
+.myClass {
+  color: blue;
+  background: #cccccc;
+}
+.myClass2 {
+  color: steelblue;
+  background: #cccccc;
+  line-height: 1.5em;
+}

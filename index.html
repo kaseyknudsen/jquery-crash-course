@@ -13,7 +13,7 @@
   </head>
   <body>
     <header>
-      <h1>JQuery Crash Course</h1>
+      <h1>JQuery Crash Course | Selectors</h1>
     </header>
     <div class="container">
       <h1 id="heading1">Heading 1</h1>
@@ -50,34 +50,66 @@
 
       <a href="http://google.com">Google</a>
       <a href="http://yahoo.com">Yahoo</a>
+
+      <h1>Mouse Events</h1>
+      <button id="button1">Button 1</button>
+      <button id="button2">Hide Text</button>
+      <button id="button3">Show Text</button>
+      <button id="button4">Toggle Text</button>
+      <button id="button5">Toggle Text on Hover</button>
+
+      <p class="para3">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
+        asperiores minus temporibus provident animi dolor corrupti? Sapiente
+        illo eligendi quasi tempore nesciunt non eos eaque! Minus quam cum non
+        animi.
+      </p>
     </div>
-
     <script>
-      //   $("h1").hide();
-      // access ID using element tag
-      $("h1#heading1").hide();
-      //access class using element tag
-      $("h1.heading2").hide();
-      //this also works
-      $(".heading2").hide();
-      //get the span in the paragraph
-      $("p span").css("color", "red");
+      //this tells the browser to run the function when ready
+      $(document).ready(function () {
+        //   $("h1").hide();
+        // access ID using element tag
+        //   $("h1#heading1").hide();
+        //access class using element tag
+        //   $("h1.heading2").hide();
+        //this also works
+        //   $(".heading2").hide();
+        //get the span in the paragraph
+        $("p span").css("color", "red");
 
-      $("ul#list li:first").css("color", "red");
-      $("ul#list li:last").css("color", "green");
-      $("ul#list li:even").css("background-color", "yellow");
-      $("ul#list li:odd").css("background-color", "#cccccc");
-      //removes bullets from every 3rd list item
-      $("ul#list li:nth-child(3n)").css("list-style", "none");
-      $(":button").hide();
-      $(":submit").hide();
-      $(":text").hide();
-      //this targets all hrefs
-      $("[href]").css("color", "red");
-      //this targets just yahoo link
-      $("a[href='http://yahoo.com']").css("color", "red");
-      //this hides everything
-      //   $("*").hide();
+        $("ul#list li:first").css("color", "red");
+        $("ul#list li:last").css("color", "green");
+        $("ul#list li:even").css("background-color", "yellow");
+        $("ul#list li:odd").css("background-color", "#cccccc");
+        //removes bullets from every 3rd list item
+        $("ul#list li:nth-child(3n)").css("list-style", "none");
+        //   $(":button").hide();
+        //   $(":submit").hide();
+        //   $(":text").hide();
+        //this targets all hrefs
+        $("[href]").css("color", "red");
+        //this targets just yahoo link
+        $("a[href='http://yahoo.com']").css("color", "red");
+        //this hides everything
+        //   $("*").hide();
+        $("#button1").click(() => {
+          alert("button clicked");
+        });
+        //this will hide the paragraph 3 text when clicked
+        $("#button2").click(() => {
+          $(".para3").hide();
+        });
+        $("#button3").click(() => {
+          $(".para3").show();
+        });
+        $("#button4").click(() => {
+          $(".para3").toggle();
+        });
+        $("#button5").hover(() => {
+          $(".para3").toggle();
+        });
+      });
     </script>
   </body>
 </html>

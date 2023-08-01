@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>J Query Tutorial | DOM Manipulation</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>JQuery Crash Course | DOM Manipulation</h1>
+    </header>
+    <div class="container">
+      <button id="btn1">Button 1</button>
+      <button id="btn2">Toggle Class</button>
+      <p class="para1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum eius
+        necessitatibus ad minima adipisci aperiam quidem soluta magni rem saepe,
+        quae praesentium recusandae exercitationem odio doloribus omnis earum
+        illum veritatis!
+      </p>
+      <p class="para2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum eius
+        necessitatibus ad minima adipisci aperiam quidem soluta magni rem saepe,
+        quae praesen tium recusandae exercitationem odio doloribus omnis earum
+        illum veritatis!
+      </p>
+      <p class="para3">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum eius
+        necessitatibus ad minima adipisci aperiam quidem soluta magni rem saepe,
+        quae praesen tium recusandae exercitationem odio doloribus omnis earum
+        illum veritatis!
+      </p>
+      <p class="para4">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum eius
+        necessitatibus ad minima adipisci aperiam quidem soluta magni rem saepe,
+        quae praesen tium recusandae exercitationem odio doloribus omnis earum
+        illum veritatis!
+      </p>
+      <div class="mydiv"></div>
+      <input type="text" name="" id="newItem" />
+      <ul>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+        <li>List Item 4</li>
+      </ul>
+      <a href="http://google.com">Google</a>
+      <ul id="users"></ul>
+      <ul id="list"></ul>
+    </div>
+    <script>
+      $(document).ready(() => {
+        $(".para1").css("color", "red");
+        //multiple CSS properties
+        $(".para2").css({ color: "red", background: "#cccccc" });
+        $(".para3").addClass("myClass");
+        // $("p.para3").removeClass("myClass");
+        $("#btn1").click(() => {
+          $("para4").addClass("myClass2");
+        });
+        $("#btn2").click(() => {
+          $(".para4").toggleClass("myClass2");
+        });
+        //change content
+        $("#myDiv").text("Adding new text");
+        $("#myDiv").html("<h3>Adding new text with html</h3> ");
+        alert($("#myDiv").text("alert"));
+        $("ul").append("<li>Append List Item 5</li>");
+        $("ul").prepend("<li>Prepend List Item 0</li>");
+        $(".para1").appendTo(".para2");
+        $(".para1").prependTo(".para2");
+        $("ul").before("<h4>I am being inserted before</h4>");
+        $("ul").after("<h4>I am being inserted after</h4>");
+        //empty empties everything inside the UL, but not the UL itself
+        // $("ul").empty();
+        //this will detach the ul from the DOM
+        //$("ul").detach();
+
+        //these will add and remove attributes from the link
+        /*  $("a").attr("target", "_blank");
+        alert($("a").attr("href"));
+        $("a").removeAttr("target"); */
+
+        //wrapping elements in other elements (don't need a closing tag)
+        //this will wrap each paragraph in a separate h1
+        $(".p").wrap("<h1>");
+        //this will wrap each paragraph in 1 big h1
+        $(".p").wrapAll("<h1>");
+      });
+
+      //this code will add a new list item when the input value is entered
+      $("#newItem").keyup((e) => {
+        //which gets the key code
+        let code = e.which;
+        //code for enter is 13
+        if (code === 13) {
+          e.preventDefault();
+          $("ul").append("<li>" + e.target.value + "</li>");
+          //not sure if this will do the same thing?
+          $("ul").append(`<li>${e.target.value}</li>`);
+        }
+
+        const namesArray = ["Kasey", "Dad", "Krista", "Jenny", "Murphy"];
+        //loop through an array with .each
+        $.each(namesArray, (index, value) => {
+          console.log(value);
+          $("#users").append(`<li>${value}</li>`);
+        });
+        //here we are getting the list items inside of the ul with the id of list and turning them into an array
+        const newArray = $("ul#list li").toArray();
+        console.log(newArray);
+        //loop through the values and log out the innerHTML
+        $.each(newArray, (i, value) => {
+          console.log(value.innerHTML);
+        });
+      });
+    </script>
+  </body>
+</html>
