@@ -53,6 +53,7 @@
       <a href="http://google.com">Google</a>
       <ul id="users"></ul>
       <ul id="list"></ul>
+      <ul id="names"></ul>
     </div>
     <script>
       $(document).ready(() => {
@@ -118,6 +119,7 @@
         //loop through the values and log out the innerHTML
         $.each(newArray, (i, value) => {
           console.log(value.innerHTML);
+          $("#names").append(`<li>${value}</li>`);
         });
       });
     </script>
